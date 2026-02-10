@@ -375,10 +375,10 @@ stop serving.
    :width: 45%
 
 To share the website on the open internet, simply put the files in the
-``html`` directory on any webserver that can serve static content.  Github Pages
-works quite well, for example.  For using Github Pages, ``asv``
+``html`` directory on any webserver that can serve static content.  GitHub Pages
+works quite well, for example.  For using GitHub Pages, ``asv``
 includes the convenience command ``asv gh-pages`` to put the results
-to the ``gh-pages`` branch and push them to Github. See :ref:`asv gh-pages
+to the ``gh-pages`` branch and push them to GitHub. See :ref:`asv gh-pages
 --help <cmd-asv-gh-pages>` for details.
 
 Managing the results database

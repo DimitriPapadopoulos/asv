@@ -5,11 +5,11 @@ We love pull requests from everyone. By participating in this project,
 you agree to abide by the contributor covenant suggested `code of
 conduct <https://github.com/airspeed-velocity/asv/blob/main/CODE_OF_CONDUCT.md>`__.
 
-We use `Github Flow <https://docs.github.com/en/get-started/using-github/github-flow>`__, so all code changes happen through pull requests
+We use `GitHub Flow <https://docs.github.com/en/get-started/using-github/github-flow>`__, so all code changes happen through pull requests
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Pull requests are the best way to propose changes to the codebase (we
-use `Github
+use `GitHub
 Flow <https://guides.github.com/introduction/flow/index.html>`__). We
 actively welcome your pull requests:
 

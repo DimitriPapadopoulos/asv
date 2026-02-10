@@ -147,7 +147,7 @@ Timing benchmarks
 
 - ``repeat``: The number measurement samples to collect per round.
   Each sample consists of running the benchmark ``number`` times.
-  The median time from all samples collected in all roudns is used
+  The median time from all samples collected in all rounds is used
   as the final measurement result.
 
   ``repeat`` can be a tuple ``(min_repeat, max_repeat, max_time)``.
