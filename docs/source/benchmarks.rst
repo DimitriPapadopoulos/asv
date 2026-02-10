@@ -65,7 +65,7 @@ benchmark types:
         ``"my_file.time_something"``).
 
         - First dotted part, the ``<module>``, is used as a group name. It can be any string,
-          so even string like ``"My Group.time_something"`` is valid.
+          so even a string like ``"My Group.time_something"`` is valid.
 
         - The last dotted part, the ``<function>``, is used for determining whether a function
           is ``time_``, ``time_raw_``, ``mem_``, etc. As such, the function name MUST start with

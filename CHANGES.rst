@@ -358,13 +358,13 @@ Other Changes and Additions
 - CI/etc changes. (#585, #570)
 - Added internal debugging command ``asv.benchmarks`` (#685)
 - Make tests not require network connection, except with Conda (#696)
-- Drop support for end-of-lifed Python versions 2.6 & 3.2 & 3.3 (#548)
+- Drop support for end-of-life Python versions 2.6 & 3.2 & 3.3 (#548)
 
 
 0.3b1 (2018-08-29)
 ------------------
 
-Prerelease. Same as 0.3rc1, minus #721--
+Prerelease. Same as 0.3rc1, minus #721.
 
 
 0.2.2 (2018-07-14)

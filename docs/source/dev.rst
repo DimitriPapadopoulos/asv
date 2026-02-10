@@ -16,7 +16,7 @@ developers and other people interested in internals of ``asv``.
 Development setup
 -----------------
 
-The required packages to the full ``asv`` test suite, are listed in
+The required packages for the full ``asv`` test suite are listed in
 ``pyproject.toml``. The minimal set of packages required for
 testing are: ``pytest virtualenv filelock six pip setuptools wheel``.
 

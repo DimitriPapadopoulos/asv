@@ -90,7 +90,7 @@ The defaults are::
 
     .. versionchanged:: 0.6.2
 
-        The default build command now assume network connectivity is not
+        The default build command now assumes network connectivity is not
         prohibited. The ``build_command`` is now::
 
           "build_command":

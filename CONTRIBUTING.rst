@@ -5,7 +5,7 @@ We love pull requests from everyone. By participating in this project,
 you agree to abide by the contributor covenant suggested `code of
 conduct <https://github.com/airspeed-velocity/asv/blob/main/CODE_OF_CONDUCT.md>`__.
 
-We Use `Github Flow <https://docs.github.com/en/get-started/using-github/github-flow>`__, So All Code Changes Happen Through Pull Requests
+We use `Github Flow <https://docs.github.com/en/get-started/using-github/github-flow>`__, so all code changes happen through pull requests
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Pull requests are the best way to propose changes to the codebase (we
@@ -28,21 +28,19 @@ A sample **good commit** is:
 
 .. code:: diff
 
-   fileName: Thing I did
-   Some subHeading things
+   benchmarks: Add memory profiling for array operations
 
-   So this change was to do that thing I thought was good. Also there was this
-   other person who thought so too, so then I ate a sandwich and we got the code
-   done. I am writing this but really, honestly, two people did this.
+   This change adds memory benchmarks for numpy array operations to track
+   memory usage patterns over time. The implementation uses the mem_ prefix
+   to ensure proper detection by the asv framework.
 
 
    Co-authored-by: Joel Doe <joel@iexistreally.com>
 
 A good commit should have:
 
--  The name of the file, or the topic or the subject you have changed or
-   the namespace or the functionality you have added **something:**
--  A line describing **something:**
+-  A descriptive subject line indicating what file, topic, or functionality was changed
+-  A brief description of the change
 -  An *(optional)* subheading with more details
 -  An *(optional)* paragraph or essay on why the change was done and
    anything else you want to share with the devs.
