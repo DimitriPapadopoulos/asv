@@ -28,19 +28,21 @@ A sample **good commit** is:
 
 .. code:: diff
 
-   benchmarks: Add memory profiling for array operations
+   fileName: Thing I did
+   Some subHeading things
 
-   This change adds memory benchmarks for numpy array operations to track
-   memory usage patterns over time. The implementation uses the mem_ prefix
-   to ensure proper detection by the asv framework.
+   So this change was to do that thing I thought was good. Also there was this
+   other person who thought so too, so then I ate a sandwich and we got the code
+   done. I am writing this but really, honestly, two people did this.
 
 
    Co-authored-by: Joel Doe <joel@iexistreally.com>
 
 A good commit should have:
 
--  A descriptive subject line indicating what file, topic, or functionality was changed
--  A brief description of the change
+-  The name of the file, or the topic or the subject you have changed or
+   the namespace or the functionality you have added **something:**
+-  A line describing **something:**
 -  An *(optional)* subheading with more details
 -  An *(optional)* paragraph or essay on why the change was done and
    anything else you want to share with the devs.
