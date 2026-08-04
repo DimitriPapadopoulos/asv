@@ -151,15 +151,14 @@ as skipped.
       they are faster and do not execute the ``setup`` function. See
       :ref:`skipping-benchmarks` for more details.
 
-The ``setup`` method is run for each benchmark sample (each
-``repeat``), not between the inner ``number`` timed iterations within a
-sample.  If your timed code mutates state that ``setup`` restores, set
-``number = 1``, or leave ``number`` unset: with a ``setup`` present,
-automatic ``number`` selection keeps it at 1 (asv_runner 0.3.0+), so
-each sample is a single call.  An explicitly set ``number`` larger than
-1 shares state across the calls within a sample.  Benchmarks whose
-``setup`` only builds inputs keep automatic batching by moving that
-work to ``setup_cache``.  See :ref:`timing-benchmarks` and `asv#966
+The ``setup`` method is run multiple times, for each benchmark and for
+each repeat.  For timing benchmarks it also runs before every timed
+call (asv_runner 0.3.0+): automatic ``number`` selection keeps
+``number`` at 1, and an explicitly set larger ``number`` re-runs
+``setup`` between the individually timed calls, at the cost of two
+extra clock reads per call.  Benchmarks whose ``setup`` only builds
+inputs keep plain ``timeit`` batching by moving that work to
+``setup_cache``.  See :ref:`timing-benchmarks` and `asv#966
 <https://github.com/airspeed-velocity/asv/issues/966>`__.
 
 If the ``setup`` is especially expensive, the ``setup_cache`` method

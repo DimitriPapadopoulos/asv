@@ -160,11 +160,11 @@ Timing benchmarks
 
 - ``number``: Manually choose the number of iterations in each sample.
   If ``number`` is specified, ``sample_time`` is ignored.
-  Note that ``setup`` and ``teardown`` are not run between those
-  iterations: ``setup`` runs first, then the timed benchmark routine is
-  called ``number`` times, and after that ``teardown`` runs.  State
-  mutated by one iteration is therefore visible to the next; set
-  ``number = 1`` when each timed call needs freshly set-up state.
+  When the benchmark has no ``setup`` hook, the timed routine is simply
+  called ``number`` times back-to-back.  With a ``setup`` hook present
+  (asv_runner 0.3.0+), ``setup`` and ``teardown`` re-run between the
+  iterations and only the calls themselves are timed, so every timed
+  call observes freshly set-up state.
 
 - ``sample_time``: ``asv`` will automatically select ``number`` so that
   each sample takes approximately ``sample_time`` seconds.  If not
@@ -173,7 +173,8 @@ Timing benchmarks
   ``number`` at 1 (asv_runner 0.3.0+) so state restored in ``setup`` is
   not reused across timed calls (`asv#966
   <https://github.com/airspeed-velocity/asv/issues/966>`__); an
-  explicitly set ``number`` overrides this.
+  explicitly set ``number`` still batches, with ``setup`` re-run
+  between the timed calls.
 
 - ``min_run_count``: the function is run at least this many times during
   benchmark. Default: 2
