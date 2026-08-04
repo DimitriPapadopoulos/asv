@@ -152,12 +152,20 @@ as skipped.
       :ref:`skipping-benchmarks` for more details.
 
 The ``setup`` method is run multiple times, for each benchmark and for
-each repeat.  If the ``setup`` is especially expensive, the
-``setup_cache`` method may be used instead, which only performs the
-setup calculation once and then caches the result to disk.  It is run
-only once also for repeated benchmarks and profiling, unlike
-``setup``.  ``setup_cache`` can persist the data for the benchmarks it
-applies to in two ways:
+each repeat.  For timing benchmarks it also runs before every timed
+call (asv_runner 0.3.0+): automatic ``number`` selection keeps
+``number`` at 1, and an explicitly set larger ``number`` re-runs
+``setup`` between the individually timed calls, at the cost of two
+extra clock reads per call.  Benchmarks whose ``setup`` only builds
+inputs keep plain ``timeit`` batching by moving that work to
+``setup_cache``.  See :ref:`timing-benchmarks` and `asv#966
+<https://github.com/airspeed-velocity/asv/issues/966>`__.
+
+If the ``setup`` is especially expensive, the ``setup_cache`` method
+may be used instead, which only performs the setup calculation once
+and then caches the result to disk.  It is run only once also for
+repeated benchmarks and profiling, unlike ``setup``.  ``setup_cache``
+can persist the data for the benchmarks it applies to in two ways:
 
 - Returning a data structure, which ``asv`` pickles to disk, and
   then loads and passes it as the first argument to each benchmark.
@@ -393,7 +401,8 @@ How ASV runs benchmarks is as follows (pseudocode for main idea)::
      for round in range(`rounds`):
         for benchmark in benchmarks:
             with new process:
-                <calibrate `number` if not manually set>
+                <calibrate `number` if not manually set;
+                 kept at 1 when a `setup` hook exists>
                 for j in range(`repeat`):
                     <setup `benchmark`>
                     sample = timing_function(<run benchmark `number` times>) / `number`
