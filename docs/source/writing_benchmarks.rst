@@ -151,13 +151,18 @@ as skipped.
       they are faster and do not execute the ``setup`` function. See
       :ref:`skipping-benchmarks` for more details.
 
-The ``setup`` method is run multiple times, for each benchmark and for
-each repeat.  If the ``setup`` is especially expensive, the
-``setup_cache`` method may be used instead, which only performs the
-setup calculation once and then caches the result to disk.  It is run
-only once also for repeated benchmarks and profiling, unlike
-``setup``.  ``setup_cache`` can persist the data for the benchmarks it
-applies to in two ways:
+The ``setup`` method is run for each benchmark sample (each
+``repeat``), not between the inner ``number`` timed iterations within a
+sample.  If your timed code mutates state that ``setup`` restores,
+leave ``number`` unset or ``1`` (with a ``setup`` present, the runner
+forces ``number=1`` so each sample is a single call).  See
+:ref:`timing-benchmarks` and asv#966.
+
+If the ``setup`` is especially expensive, the ``setup_cache`` method
+may be used instead, which only performs the setup calculation once
+and then caches the result to disk.  It is run only once also for
+repeated benchmarks and profiling, unlike ``setup``.  ``setup_cache``
+can persist the data for the benchmarks it applies to in two ways:
 
 - Returning a data structure, which ``asv`` pickles to disk, and
   then loads and passes it as the first argument to each benchmark.

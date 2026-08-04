@@ -160,13 +160,17 @@ Timing benchmarks
 
 - ``number``: Manually choose the number of iterations in each sample.
   If ``number`` is specified, ``sample_time`` is ignored.
-  Note that ``setup`` and ``teardown`` are not run between iterations:
-  ``setup`` runs first, then the timed benchmark routine is called
-  ``number`` times, and after that ``teardown`` runs.
+  Note that ``setup`` and ``teardown`` are not run between those
+  iterations: ``setup`` runs first, then the timed benchmark routine is
+  called ``number`` times, and after that ``teardown`` runs.
+  When a benchmark defines ``setup()``, the runner forces ``number=1``
+  so state restored in ``setup`` is not reused across timed calls
+  (asv#966).
 
 - ``sample_time``: ``asv`` will automatically select ``number`` so that
   each sample takes approximately ``sample_time`` seconds.  If not
-  specified, ``sample_time`` defaults to 10 milliseconds.
+  specified, ``sample_time`` defaults to 10 milliseconds.  Auto
+  selection is skipped when ``setup()`` is present (``number`` stays 1).
 
 - ``min_run_count``: the function is run at least this many times during
   benchmark. Default: 2
