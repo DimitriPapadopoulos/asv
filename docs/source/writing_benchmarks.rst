@@ -153,10 +153,14 @@ as skipped.
 
 The ``setup`` method is run for each benchmark sample (each
 ``repeat``), not between the inner ``number`` timed iterations within a
-sample.  If your timed code mutates state that ``setup`` restores,
-leave ``number`` unset or ``1`` (with a ``setup`` present, the runner
-forces ``number=1`` so each sample is a single call).  See
-:ref:`timing-benchmarks` and asv#966.
+sample.  If your timed code mutates state that ``setup`` restores, set
+``number = 1``, or leave ``number`` unset: with a ``setup`` present,
+automatic ``number`` selection keeps it at 1 (asv_runner 0.3.0+), so
+each sample is a single call.  An explicitly set ``number`` larger than
+1 shares state across the calls within a sample.  Benchmarks whose
+``setup`` only builds inputs keep automatic batching by moving that
+work to ``setup_cache``.  See :ref:`timing-benchmarks` and `asv#966
+<https://github.com/airspeed-velocity/asv/issues/966>`__.
 
 If the ``setup`` is especially expensive, the ``setup_cache`` method
 may be used instead, which only performs the setup calculation once
@@ -398,7 +402,8 @@ How ASV runs benchmarks is as follows (pseudocode for main idea)::
      for round in range(`rounds`):
         for benchmark in benchmarks:
             with new process:
-                <calibrate `number` if not manually set>
+                <calibrate `number` if not manually set;
+                 kept at 1 when a `setup` hook exists>
                 for j in range(`repeat`):
                     <setup `benchmark`>
                     sample = timing_function(<run benchmark `number` times>) / `number`
