@@ -61,7 +61,7 @@ where :math:`\sigma^2` is maximum likelihood variance estimator (if
 noise is gaussian). For the implementation, see
 :py:func:`asv.step_detect.solve_potts_autogamma`.
 
-What follows is a handwaving plausibility argument why such an
+What follows is an informal plausibility argument why such an
 objective function makes sense, and how to end up with :math:`l_1`
 rather than gaussians. Better approaches are probably to be found in
 step detection literature.  If you have a better formulation,
@@ -84,7 +84,7 @@ Here, :math:`y_i` are the :math:`m` data points at hand, :math:`k` is
 the number of intervals, :math:`\mu_i` are the values of the function
 at the intervals, :math:`j_i` are the interval breakpoints;
 :math:`j_0=0`, :math:`j_k=m`, :math:`j_{r-1}<j_r`. The noise is
-assumed Laplace rather than gaussian, which results to the more
+assumed to follow a Laplace distribution rather than a Gaussian, which results in the more
 robust :math:`l_1` norm fitting rather than :math:`l_2`.  The noise
 amplitude :math:`\sigma` is not known.
 :math:`N` is a normalization constant that depends on :math:`m` but
@@ -106,7 +106,7 @@ doing this rigorously here, although it might be done in the literature.
 
 Consider first saddle-point integration over :math:`\{\mu\}`,
 expanding around the max-likelihood values :math:`\mu_r^*`.
-The max-likelihood estimates are the weighted medians of the data points in each interval.
+The maximum-likelihood estimates are the weighted medians of the data points in each interval.
 Change in the exponent when :math:`\mu` is perturbed is
 
 .. math::
@@ -212,7 +212,7 @@ The final fitting problem then becomes
 with :math:`r(m) = \frac{\ln m}{2m}`.
 Note that it is invariant vs. rescaling of weights :math:`w_i\mapsto{}\alpha{}w_i`,
 i.e., the invariance of the original problem is retained.
-As we know this function
+As we know, this function
 :math:`r(m)` is not necessarily completely correct, and it seems doing
 the calculation rigorously requires more effort than can be justified
 by the requirements of the application, we now take a pragmatic view and
@@ -230,7 +230,7 @@ curve parameterized by :math:`\gamma`.  In particular,
 under the constraint :math:`k=k^*(\gamma)`. If :math:`k^*(\gamma)`
 obtains all values in the set :math:`\{1,\ldots,m\}` when
 :math:`\gamma` is varied, the original problem is solved
-completely. This probably is not a far-fetched assumption; in practice
+completely. This is probably not an unreasonable assumption; in practice
 it appears such Bayesian information criterion provides a reasonable
 way for selecting a suitable :math:`\gamma`.
 
@@ -268,7 +268,7 @@ y-values).  With the flat, scale-free prior
 :math:`\pi(\ldots)\propto1/\sigma` used above, the result is
 undefined.
 
-A simple fix is to give up complete scale free-ness of the results,
+A simple fix is to give up complete scale-freeness of the results,
 i.e., fixing a minimal noise level
 :math:`\pi(\sigma,\{\mu\},\{j\}|k)\propto\theta(\sigma-\sigma_0)/\sigma` with some
 :math:`\sigma_0(\{\mu\},\{j\},k)>0`. The effect in the
@@ -343,7 +343,7 @@ the above approach provides. For details, see
 Making use of measured variance
 -------------------------------
 
-``asv`` measures also variance in the timings.  This information is
+``asv`` also measures variance in the timings.  This information is
 currently used to provide relative data weighting (see above).
 
 References

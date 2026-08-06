@@ -45,7 +45,7 @@ For managing the environments, one of the following packages is required:
 
    ``rattler`` is the fastest for situations where non-pythonic
    dependencies are required. Anaconda or miniconda is slower but
-   still preferred if the project involves a lot of compiled C/C++
+   may still be preferred if the project involves a lot of compiled C/C++
    extensions and are available in the ``conda`` repository, since
    ``conda`` will be able to fetch precompiled binaries for these
    dependencies in many cases. Using ``virtualenv``, dependencies

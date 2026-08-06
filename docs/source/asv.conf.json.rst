@@ -90,7 +90,7 @@ The defaults are::
 
     .. versionchanged:: 0.6.2
 
-        The default build command now assume network connectivity is not
+        The default build command now assumes network connectivity is not
         prohibited. The ``build_command`` is now::
 
           "build_command":
@@ -133,7 +133,7 @@ shlex), but are not run in a shell, so that e.g. ``cd`` has no effect
 on subsequent commands, and wildcard or environment variable
 expansion is not done. The substituted variables ``{variable_name}``
 do not need to be quoted. The commands may contain environment
-variable specifications in in form ``VARNAME=value`` at the beginning.
+variable specifications in form ``VARNAME=value`` at the beginning.
 In addition, valid return codes can be specified via
 ``return-code=0,1,2`` and ``return-code=any``.
 
@@ -171,7 +171,7 @@ The base URL to show information about a particular commit.  The
 commit hash will be added to the end of this URL and then opened in a
 new tab when a data point is clicked on in the web interface.
 
-For example, if using Github to host your repository, the
+For example, if using GitHub to host your repository, the
 ``show_commit_url`` should be:
 
     https://github.com/owner/project/commit/
@@ -179,7 +179,7 @@ For example, if using Github to host your repository, the
 ``pythons``
 -----------
 The versions of Python to run the benchmarks in.  If not provided, it
-will to default to the version of Python that the ``asv`` command
+will default to the version of Python that the ``asv`` command
 (main) is being run under.
 
 If provided, it should be a list of strings.  It may be one of the

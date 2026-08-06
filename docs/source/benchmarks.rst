@@ -65,7 +65,7 @@ benchmark types:
         ``"my_file.time_something"``).
 
         - First dotted part, the ``<module>``, is used as a group name. It can be any string,
-          so even string like ``"My Group.time_something"`` is valid.
+          so even a string like ``"My Group.time_something"`` is valid.
 
         - The last dotted part, the ``<function>``, is used for determining whether a function
           is ``time_``, ``time_raw_``, ``mem_``, etc. As such, the function name MUST start with
@@ -147,7 +147,7 @@ Timing benchmarks
 
 - ``repeat``: The number measurement samples to collect per round.
   Each sample consists of running the benchmark ``number`` times.
-  The median time from all samples collected in all roudns is used
+  The median time from all samples collected in all rounds is used
   as the final measurement result.
 
   ``repeat`` can be a tuple ``(min_repeat, max_repeat, max_time)``.

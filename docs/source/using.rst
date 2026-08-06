@@ -261,12 +261,12 @@ benchmarked.  The value of this argument is passed directly to either ``git
 log`` or to the Mercurial log command to get the set of commits, so it actually
 has a very powerful syntax defined in the `gitrevisions manpage
 <https://www.kernel.org/pub/software/scm/git/docs/gitrevisions.html>`__, or the
-`revsets help section <https://repo.mercurial-scm.org/hg/help/revsets>`_ for Mercurial.
+`revsets help section <https://repo.mercurial-scm.org/hg/help/revsets>`__ for Mercurial.
 
 For example, in a Git repository, one can test a range of commits on a
 particular branch since branching off main::
 
-        asv run main..mybranch
+    asv run main..mybranch
 
 Or, to benchmark all of the commits since a particular tag (``v0.1``)::
 
@@ -375,10 +375,10 @@ stop serving.
    :width: 45%
 
 To share the website on the open internet, simply put the files in the
-``html`` directory on any webserver that can serve static content.  Github Pages
-works quite well, for example.  For using Github Pages, ``asv``
+``html`` directory on any webserver that can serve static content.  GitHub Pages
+works quite well, for example.  For using GitHub Pages, ``asv``
 includes the convenience command ``asv gh-pages`` to put the results
-to the ``gh-pages`` branch and push them to Github. See :ref:`asv gh-pages
+to the ``gh-pages`` branch and push them to GitHub. See :ref:`asv gh-pages
 --help <cmd-asv-gh-pages>` for details.
 
 Managing the results database
